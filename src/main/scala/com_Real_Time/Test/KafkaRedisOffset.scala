@@ -1,9 +1,9 @@
-package com_Real_Time.App
+package com_Real_Time.Test
 
 import java.lang
 
-import com.alibaba.fastjson.{JSON, JSONObject}
-import com_Real_Time.Utils.{Jedis2Result, Utils_Time}
+import com.alibaba.fastjson.JSON
+import com_Real_Time.Utils.Utils_Time
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -27,9 +27,9 @@ object KafkaRedisOffset {
     // 配置参数
     // 配置基本参数
     // 组名
-    val groupId = "SumId"
+    val groupId = "TestDemo"
     // topic
-    val topic = "gp222"
+    val topic = "JsonData"
     // 指定Kafka的broker地址（SparkStreaming程序消费过程中，需要和Kafka的分区对应）
     val brokerList = "192.168.160.201:9092"
     // 编写Kafka的配置参数
@@ -70,55 +70,27 @@ object KafkaRedisOffset {
           ConsumerStrategies.Assign[String,String](fromOffset.keys,kafkas,fromOffset)
         )
       }
-    // 对数据进行处理，将城市信息取出来（100 北京 200 广东。。。）
-    val file = ssc.sparkContext.textFile("D:\\city.txt")
-    val map = file.map(t=>(t.split(" ")(0),t.split(" ")(1))).collect().toMap
-    // 将数据进行广播
-    val broad = ssc.sparkContext.broadcast(map)
+
+//    我有一份json数据，需要进行解析，重新创建Topic命名为JsonData，然后用实时流进行处理数据，保存到Redis中。
+//    1.求每天充值总金额
+//    2.求每月各手机号充值的平均金额
     stream.foreachRDD({
       rdd=>
         val offestRange = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
         // 业务处理，转换成Object
         val baseData = rdd.map(_.value()).map(t=>JSON.parseObject(t))
           // 过滤需要的数据（充值通知）
-          .filter(_.getString("serviceName").equalsIgnoreCase("reChargeNotifyReq"))
           .map(t=>{
             // 先判断一下充值结果是否成功
-            val result = t.getString("bussinessRst") // 充值结果
-            val money:Double = if(result.equals("0000")) t.getDouble("chargefee") else 0.0 // 充值金额
-            val feecount = if(result.equals("0000"))  1 else 0 // 充值成功数
-            val starttime = t.getString("requestId") // 开始充值时间
-            val stoptime = t.getString("receiveNotifyTime") // 结束充值时间
-            val pro = t.getString("provinceCode") // 省份编码
-            val province = broad.value.get(pro).get // 根据省份编码取到省份名字
-            // 充值时长
-            val costtime = Utils_Time.consttiem(starttime,stoptime)
-            (starttime.substring(0,8)
-              ,starttime.substring(0,12)
-              ,starttime.substring(0,10)
-              ,List[Double](1,money,feecount,costtime)
-              ,(province,starttime.substring(0,10))
-              ,province
-            )
+            val money = t.getDouble("money") // 充值金额
+            val date= t.getString("date")//充值时间
+            val phoneNum= t.getInteger("phoneNum")//充值手机号
+          (money,date,phoneNum)
+
           }).cache()
         // 指标一 1
-//        val result1:RDD[(String,List[Double])] = baseData.map(t=>(t._1,t._4)).reduceByKey((list1,list2)=>{
-//          // list1(1,2,3).zip(list2(1,2,3)) = list((1,1),(2,2),(3,3))
-//          // map处理内部的元素相加
-//          list1.zip(list2).map(t=>t._1+t._2)
-//        })
-//        Jedis2Result.Result01(result1)
-        // 指标一 2
-        val result2 = baseData.map(t=>(t._2,t._4.head)).reduceByKey(_+_)
-        Jedis2Result.Result02(result2)
-//        // 指标 二
-//        val result3 = baseData.map(t=>(t._5,t._4)).reduceByKey((list1,list2)=>{list1.zip(list2).map(t=>t._1+t._2)})
-//        Jedis2Result.Result03(result3)
-        // 指标 三
-        //以省份为维度统计每个批次（10秒）订单量排名前 10 的省份数据,
-        // 并且统计每个省份的订单成功率，只保留一位小数，存入MySQL中
-//        val result4 = baseData.map(t=>(t._6,t._4)).reduceByKey((list1,list2)=>{list1.zip(list2).map(t=>t._1+t._2)})
-//        Jedis2Result.Result04(result4,ssc)
+       //t._1
+       //val SumMoney = Jedis2Result(money:)
         // 将偏移量进行更新
         val jedis = JedisConnectionPool.getConnection()
         for (or<-offestRange){

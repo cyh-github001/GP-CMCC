@@ -32,7 +32,7 @@ object Jedis2Result {
     lines.foreachPartition(f=>{
       val jedis = JedisConnectionPool.getConnection()
       f.foreach(t=>{
-        jedis.incrBy(t._1,t._2.toLong)
+        jedis.hincrBy("第二题",t._1,t._2.toLong)
       })
       jedis.close()
     })

@@ -1,4 +1,4 @@
-package com_Real_Time.App
+package com_Real_Time.Test
 
 import redis.clients.jedis.{Jedis, JedisPool, JedisPoolConfig}
 
