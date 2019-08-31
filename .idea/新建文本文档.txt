@@ -1,14 +1,20 @@
-package com_Real_Time.Test
+```
+package com.homework
+
 import java.lang
-import com_Real_Time.Test.Jedis2Result
+
+import com.alibaba.fastjson.JSON
+import com.utils.Jedis2Result
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
 import org.apache.spark.broadcast.Broadcast
+import org.apache.spark.rdd.RDD
 import org.apache.spark.streaming.dstream.InputDStream
 import org.apache.spark.streaming.kafka010.{ConsumerStrategies, HasOffsetRanges, KafkaUtils, LocationStrategies}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
+
 
 /**
   * Redis管理Offset
@@ -17,29 +23,29 @@ object KafkaRedisOffset {
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf().setAppName("offset").setMaster("local[2]")
       // 设置没秒钟每个分区拉取kafka的速率
-      .set("spark.streaming.kafka.maxRatePerPartition", "100")
+      .set("spark.streaming.kafka.maxRatePerPartition","100")
       // 设置序列化机制
-      .set("spark.serlizer", "org.apache.spark.serializer.KryoSerializer")
-    val ssc = new StreamingContext(conf, Seconds(3))
+      .set("spark.serlizer","org.apache.spark.serializer.KryoSerializer")
+    val ssc = new StreamingContext(conf,Seconds(3))
     // 配置参数
     // 配置基本参数
     // 组名
     val groupId = "group01"
     // topic
-    val topic = "gp222"
+    val topic = "JsonData"
     // 指定Kafka的broker地址（SparkStreaming程序消费过程中，需要和Kafka的分区对应）
     val brokerList = "hadoop01:9092,hadoop02:9092,hadoop03:9092"
     // 编写Kafka的配置参数
-    val kafkas = Map[String, Object](
-      "bootstrap.servers" -> brokerList,
+    val kafkas = Map[String,Object](
+      "bootstrap.servers"->brokerList,
       // kafka的Key和values解码方式
-      "key.deserializer" -> classOf[StringDeserializer],
-      "value.deserializer" -> classOf[StringDeserializer],
-      "group.id" -> groupId,
+      "key.deserializer"-> classOf[StringDeserializer],
+      "value.deserializer"-> classOf[StringDeserializer],
+      "group.id"->groupId,
       // 从头消费
-      "auto.offset.reset" -> "earliest",
+      "auto.offset.reset"-> "earliest",
       // 不需要程序自动提交Offset
-      "enable.auto.commit" -> (false: lang.Boolean)
+      "enable.auto.commit"-> (false:lang.Boolean)
     )
     // 创建topic集合，可能会消费多个Topic
     val topics = Set(topic)
@@ -47,28 +53,28 @@ object KafkaRedisOffset {
     // 第二步通过Offset获取Kafka数据
     // 第三步提交更新Offset
     // 获取Offset
-    var fromOffset: Map[TopicPartition, Long] = JedisOffset(groupId)
+    var fromOffset:Map[TopicPartition,Long] = JedisOffset(groupId)
     // 判断一下有没数据
-    val stream: InputDStream[ConsumerRecord[String, String]] =
-      if (fromOffset.isEmpty) {
+    val stream :InputDStream[ConsumerRecord[String,String]] =
+      if(fromOffset.isEmpty){
         KafkaUtils.createDirectStream(ssc,
           // 本地策略
           // 将数据均匀的分配到各个Executor上面
           LocationStrategies.PreferConsistent,
           // 消费者策略
           // 可以动态增加分区
-          ConsumerStrategies.Subscribe[String, String](topics, kafkas)
+          ConsumerStrategies.Subscribe[String,String](topics,kafkas)
         )
-      } else {
+      }else{
         // 不是第一次消费
         KafkaUtils.createDirectStream(
           ssc,
           LocationStrategies.PreferConsistent,
-          ConsumerStrategies.Assign[String, String](fromOffset.keys, kafkas, fromOffset)
+          ConsumerStrategies.Assign[String,String](fromOffset.keys,kafkas,fromOffset)
         )
       }
 
-    val logs: List[(Long, Long, String)] = ssc.sparkContext.textFile("D://ip.txt").map(line => {
+    val logs: List[(Long, Long, String)] = ssc.sparkContext.textFile("E://ip.txt").map(line => {
       val items = line.split("\\|")
       val start = items(2).toLong
       val end = items(3).toLong
@@ -78,7 +84,7 @@ object KafkaRedisOffset {
     val logsBc: Broadcast[List[(Long, Long, String)]] = ssc.sparkContext.broadcast(logs)
 
     stream.foreachRDD({
-      rdd =>
+      rdd=>
         val offestRange = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
         // 业务处理
         val baseRDD = rdd.map(line => {
@@ -92,7 +98,7 @@ object KafkaRedisOffset {
           (date, ip, types, name, money)
         })
 
-
+        /*
         // 指标1
         baseRDD.map(_._5).foreachPartition(f => {
           val jedis = JedisConnectionPool.getConnection()
@@ -100,34 +106,34 @@ object KafkaRedisOffset {
             jedis.incrBy("20190831_1", t.toLong)
           })
           jedis.close()
+        })*/
+
+        /*
+        // 指标2
+        baseRDD.map(x => (x._3, 1)).foreachPartition(f => {
+          val jedis = JedisConnectionPool.getConnection()
+          f.foreach(t => {
+            jedis.hincrBy("20190831_2", t._1, t._2)
+          })
+          jedis.close()
+        })*/
+
+
+        // 指标3
+        baseRDD.map(x => (x._2, x._5)).foreachPartition(f => {
+          val jedis = JedisConnectionPool.getConnection()
+          f.foreach(t => {
+            val pro = getPro(t._1, logsBc.value)
+            jedis.hincrBy("20190831_3", pro, t._2.toLong)
+          })
+          jedis.close()
         })
-
-
-//        // 指标2
-//        baseRDD.map(x => (x._3, 1)).foreachPartition(f => {
-//          val jedis = JedisConnectionPool.getConnection()
-//          f.foreach(t => {
-//            jedis.hincrBy("20190831_2", t._1, t._2)
-//          })
-//          jedis.close()
-//        })
-//
-//
-//        // 指标3
-//        baseRDD.map(x => (x._2, x._5)).foreachPartition(f => {
-//          val jedis = JedisConnectionPool.getConnection()
-//          f.foreach(t => {
-//            val pro = getPro(t._1, logsBc.value)
-//            jedis.hincrBy("20190831_3", pro, t._2.toLong)
-//          })
-//          jedis.close()
-//        })
 
 
         // 将偏移量进行更新
         val jedis = JedisConnectionPool.getConnection()
-        for (or <- offestRange) {
-          jedis.hset(groupId, or.topic + "-" + or.partition, or.untilOffset.toString)
+        for (or<-offestRange){
+          jedis.hset(groupId,or.topic+"-"+or.partition,or.untilOffset.toString)
         }
         jedis.close()
     })
@@ -135,4 +141,34 @@ object KafkaRedisOffset {
     ssc.start()
     ssc.awaitTermination()
   }
+
+  // 将IP转换成十进制
+  def ip2Long(ip:String):Long ={
+    val s = ip.split("[.]")
+    var ipNum =0L
+    for(i<-0 until s.length){
+      ipNum = s(i).toLong | ipNum << 8L
+    }
+    ipNum
+  }
+
+  def getPro(ip: String, logs: List[(Long, Long, String)]): String = {
+    val lip: Long = ip2Long(ip)
+    var l = 0
+    var r = logs.size
+    var mid = 0
+    while (l <= r) {
+      mid = (l + r)/2
+      if (logs(mid)._2 < lip)
+        l = mid
+      else if (logs(mid)._1 > lip)
+        r = mid
+      else
+        return logs(mid)._3
+    }
+    ""
+  }
 }
+
+```
+

@@ -1,39 +1,36 @@
 package com_Real_Time.Test
 
-import org.apache.spark.rdd.RDD
-import org.apache.spark.streaming.StreamingContext
 
 /**
   * 指标统计
   */
 object Jedis2Result {
 
-  // 指标1
-  def Result01(lines:RDD[(String, List[Double])]): Unit ={
-    lines.foreachPartition(f=>{
-      val jedis = JedisConnectionPool.getConnection()
-      f.foreach(t=>{
-        // 充值订单数
-        jedis.hincrBy(t._1,"count",t._2.head.toLong)
-        // 充值金额
-        jedis.hincrByFloat(t._1,"money",t._2(1))
-        // 充值成功数
-        jedis.hincrBy(t._1,"success",t._2(2).toLong)
-        // 充值总时长
-        jedis.hincrBy(t._1,"time",t._2(3).toLong)
-      })
-      jedis.close()
-    })
-  }
-  //指标2
-  def Result02(lines: RDD[(String, Double)]): Unit ={
-    lines.foreachPartition(f=>{
-      val jedis = JedisConnectionPool.getConnection()
-      f.foreach(t=>{
-        jedis.incrBy(t._1,t._2.toLong)
-      })
-      jedis.close()
-    })
+  def getPro(ip: String, logs: List[(Long, Long, String)]): String = {
+    val lip: Long = ip2Long(ip)
+    var l = 0
+    var r = logs.size
+    var mid = 0
+    while (l <= r) {
+      mid = (l + r)/2
+      if (logs(mid)._2 < lip)
+        l = mid
+      else if (logs(mid)._1 > lip)
+        r = mid
+      else
+        return logs(mid)._3
+    }
+    ""
   }
 
+  // 将IP转换成十进制
+  def ip2Long(ip:String):Long ={
+    val s = ip.split("[.]")
+    var ipNum =0L
+    for(i<-0 until s.length){
+      ipNum = s(i).toLong | ipNum << 8L
+    }
+    ipNum
+  }
 }
+

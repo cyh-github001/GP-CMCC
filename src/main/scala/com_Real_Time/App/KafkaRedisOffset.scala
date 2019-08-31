@@ -109,11 +109,11 @@ object KafkaRedisOffset {
 //        })
 //        Jedis2Result.Result01(result1)
         // 指标一 2
-        val result2 = baseData.map(t=>(t._2,t._4.head)).reduceByKey(_+_)
-        Jedis2Result.Result02(result2)
+//        val result2 = baseData.map(t=>(t._2,t._4.head)).reduceByKey(_+_)
+//        Jedis2Result.Result02(result2)
 //        // 指标 二
-//        val result3 = baseData.map(t=>(t._5,t._4)).reduceByKey((list1,list2)=>{list1.zip(list2).map(t=>t._1+t._2)})
-//        Jedis2Result.Result03(result3)
+        val result3 = baseData.map(t=>(t._5,t._4)).reduceByKey((list1,list2)=>{list1.zip(list2).map(t=>t._1+t._2)})
+        Jedis2Result.Result03(result3)
         // 指标 三
         //以省份为维度统计每个批次（10秒）订单量排名前 10 的省份数据,
         // 并且统计每个省份的订单成功率，只保留一位小数，存入MySQL中
