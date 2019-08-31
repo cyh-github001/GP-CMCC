@@ -2,36 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="738226ce-23fb-4eb4-aab2-dea910c1dd7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/新建文本文档.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/App/KafkaRedisOffset.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/App/KafkaRedisOffset.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog10.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog10.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisConnectionPool.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisConnectionPool.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisOffset.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisOffset.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/logs/CollectLog10.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/logs/CollectLog10.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog10.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOffset.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOffset.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$$anonfun$main$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/App/KafkaRedisOffset$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/CollectLog10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/CollectLog10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$$anonfun$Result01$1$$anonfun$apply$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$$anonfun$Result01$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$$anonfun$Result02$1$$anonfun$apply$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$$anonfun$Result02$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/logs/CollectLog10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/logs/CollectLog10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/CollectLog10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$$anonfun$ip2Long$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$$anonfun$ip2Long$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result$.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/Jedis2Result.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$2$$anonfun$apply$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$2$$anonfun$apply$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1$$anonfun$apply$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$$anonfun$main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com_Real_Time/Test/KafkaRedisOffset$.class" afterDir="false" />
     </list>
@@ -49,10 +34,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog10.java">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+            <state relative-caret-position="182">
+              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -60,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOffset.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="1400">
+              <caret line="128" selection-start-line="128" selection-end-line="128" />
               <folding>
                 <element signature="e#27#43#0" expanded="true" />
               </folding>
@@ -70,10 +55,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/App/KafkaRedisOffset.scala">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -81,35 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/新建文本文档.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisOffset.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisConnectionPool.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+            <state relative-caret-position="273">
+              <caret line="136" column="9" selection-start-line="3" selection-end-line="142" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -141,14 +99,12 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/Context/KafkaRedisOffset.scala" />
         <option value="$PROJECT_DIR$/src/main/java/com/logs/ColletcLog10.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/host/Context.scala" />
-        <option value="$PROJECT_DIR$/src/main/java/com/logs/CollectLog10.java" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/App/JedisConnectionPool.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Utils/ConnectPoolUtils.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Utils/Jedis2Result.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOffset_01.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/App/KafkaRedisOffset.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisConnection.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog.java" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOff.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisToResult.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Test.scala" />
@@ -158,6 +114,8 @@
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisConnectionPool.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog10.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/logs/CollectLog10.java" />
+        <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog.java" />
         <option value="$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOffset.scala" />
       </list>
     </option>
@@ -199,11 +157,6 @@
             <path>
               <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
               <item name="Real_Time" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Real_Time" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -217,15 +170,7 @@
               <item name="Real_Time" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Real_Time" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="logs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
@@ -241,15 +186,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
               <item name="com_Real_Time" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Real_Time" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="com_Real_Time" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
@@ -264,10 +200,7 @@
               <item name="Real_Time" type="b2602c69:ProjectViewProjectNode" />
               <item name="Real_Time" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="com_Real_Time" type="462c0819:PsiDirectoryNode" />
-              <item name="Utils" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -310,8 +243,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.KafkaRedisOffset (1)">
-    <configuration name="CollectLog10 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com_Real_Time.Test.CollectLog10" />
+    <configuration name="CollectLog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com_Real_Time.Test.CollectLog" />
       <module name="Real_Time" />
       <extension name="coverage">
         <pattern>
@@ -379,8 +312,8 @@
       <list>
         <item itemvalue="Application.KafkaRedisOffset (1)" />
         <item itemvalue="Application.CollectLog10 (1)" />
-        <item itemvalue="Application.KafkaRedisOffset" />
         <item itemvalue="Application.CollectLog10" />
+        <item itemvalue="Application.KafkaRedisOffset" />
         <item itemvalue="Application.KafkaRedisOffset (2)" />
       </list>
     </recent_temporary>
@@ -459,13 +392,20 @@
       <option name="project" value="LOCAL" />
       <updated>1567180732634</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="实时充值平台">
+      <created>1567242167075</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1567242167076</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23298033" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -474,7 +414,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.328" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2557377" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.43278688" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -483,7 +423,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.19672132" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.16065574" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -549,16 +489,6 @@
           <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="e#28#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/logs/CollectLog10.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -673,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/新建文本文档.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/App/KafkaRedisOffset.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -687,38 +610,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisOffset.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="399">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisConnectionPool.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
+        <state relative-caret-position="168">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/JedisOffset.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/logs/CollectLog10.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="45" lean-forward="true" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        <state relative-caret-position="329">
+          <caret line="26" column="84" lean-forward="true" selection-start-line="26" selection-start-column="84" selection-end-line="26" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog10.java">
+    <entry file="file://$PROJECT_DIR$/.idea/新建文本文档.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
+        <state relative-caret-position="273">
+          <caret line="136" column="9" selection-start-line="3" selection-end-line="142" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/Jedis2Result.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/CollectLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com_Real_Time/Test/KafkaRedisOffset.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="1400">
+          <caret line="128" selection-start-line="128" selection-end-line="128" />
           <folding>
             <element signature="e#27#43#0" expanded="true" />
           </folding>

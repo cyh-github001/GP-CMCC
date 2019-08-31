@@ -1,14 +1,16 @@
 package com_Real_Time.Test
 import java.lang
-import com_Real_Time.Test.Jedis2Result
+
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.TopicPartition
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.SparkConf
 import org.apache.spark.broadcast.Broadcast
+
 import org.apache.spark.streaming.dstream.InputDStream
 import org.apache.spark.streaming.kafka010.{ConsumerStrategies, HasOffsetRanges, KafkaUtils, LocationStrategies}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
+
 
 /**
   * Redis管理Offset
@@ -26,7 +28,7 @@ object KafkaRedisOffset {
     // 组名
     val groupId = "group01"
     // topic
-    val topic = "gp222"
+    val topic = "gp"
     // 指定Kafka的broker地址（SparkStreaming程序消费过程中，需要和Kafka的分区对应）
     val brokerList = "hadoop01:9092,hadoop02:9092,hadoop03:9092"
     // 编写Kafka的配置参数
@@ -93,35 +95,37 @@ object KafkaRedisOffset {
         })
 
 
-        // 指标1
-        baseRDD.map(_._5).foreachPartition(f => {
+//        // 指标1
+//        baseRDD.map(_._5).foreachPartition(f => {
+//          val jedis = JedisConnectionPool.getConnection()
+//          f.foreach(t => {
+//            jedis.incrBy("20190831_1", t.toLong)
+//          })
+//          jedis.close()
+//        })
+
+
+//        // 指标2
+        ////        baseRDD.map(x => (x._3, 1)).foreachPartition(f => {
+        ////          val jedis = JedisConnectionPool.getConnection()
+        ////          f.foreach(t => {
+        ////            jedis.hincrBy("20190831_2", t._1, t._2)
+        ////          })
+        ////          jedis.close()
+        ////        })
+
+
+
+        // 指标3
+        baseRDD.map(x => (x._2, x._5)).foreachPartition(f => {
           val jedis = JedisConnectionPool.getConnection()
           f.foreach(t => {
-            jedis.incrBy("20190831_1", t.toLong)
+            val pro = Jedis2Result.getPro(t._1, logsBc.value)
+            jedis.hincrBy("20190831_3", pro, t._2.toLong)
           })
           jedis.close()
         })
 
-
-//        // 指标2
-//        baseRDD.map(x => (x._3, 1)).foreachPartition(f => {
-//          val jedis = JedisConnectionPool.getConnection()
-//          f.foreach(t => {
-//            jedis.hincrBy("20190831_2", t._1, t._2)
-//          })
-//          jedis.close()
-//        })
-//
-//
-//        // 指标3
-//        baseRDD.map(x => (x._2, x._5)).foreachPartition(f => {
-//          val jedis = JedisConnectionPool.getConnection()
-//          f.foreach(t => {
-//            val pro = getPro(t._1, logsBc.value)
-//            jedis.hincrBy("20190831_3", pro, t._2.toLong)
-//          })
-//          jedis.close()
-//        })
 
 
         // 将偏移量进行更新
@@ -135,4 +139,5 @@ object KafkaRedisOffset {
     ssc.start()
     ssc.awaitTermination()
   }
+
 }

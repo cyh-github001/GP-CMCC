@@ -26,9 +26,9 @@ public class CollectLog10 {
         //这个地方和1.0X之前的版本有不一样的，这个是使用kafkaproducer 类来实例化
         Producer<String, String> producer = new KafkaProducer<String, String>(prop);
         try {
-            BufferedReader bf = new BufferedReader(new FileReader(new File("D:\\cmcc.json")));// 路径
+            BufferedReader bf = new BufferedReader(new FileReader(new File("D:\\order.log")));// 路径
             String line = null;
-            while((line=bf.readLine())!=null){ Thread.sleep(1000);producer.send(new ProducerRecord<String, String>("gp222", line));
+            while((line=bf.readLine())!=null){ Thread.sleep(1000);producer.send(new ProducerRecord<String, String>("gp22", line));
             }
             bf.close();
             producer.close();
